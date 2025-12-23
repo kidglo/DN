@@ -1,4 +1,3 @@
-import React from 'react';
 import OpportunitiesTable from './components/OpportunitiesTable';
 import './App.css';
 

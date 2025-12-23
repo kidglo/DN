@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { useWebSocket } from '../hooks/useWebSocket';
-import type { ArbitrageOpportunity, TimePeriod, OpportunitiesByPeriod } from '../../../shared/types';
+import type { TimePeriod, OpportunitiesByPeriod } from '../../../shared/types';
 import './OpportunitiesTable.css';
 
 type SortField = 'symbol' | 'longExchange' | 'shortExchange' | 'longFundingRate' | 'shortFundingRate' | 'netAPR' | 'lastUpdated';
@@ -54,7 +54,7 @@ function OpportunitiesTable() {
   const [apiError, setApiError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [restOpportunities, setRestOpportunities] = useState<OpportunitiesByPeriod>(emptyOpportunities);
-  const [apiStatus, setApiStatus] = useState<{ lighter: boolean; hyperliquid: boolean }>({ lighter: false, hyperliquid: false });
+  const [, setApiStatus] = useState<{ lighter: boolean; hyperliquid: boolean }>({ lighter: false, hyperliquid: false });
   const [activeTab, setActiveTab] = useState<TimePeriod>('realtime');
 
   // Combine WebSocket and REST API opportunities
