@@ -1,0 +1,283 @@
+.opportunities-container {
+  background: rgba(30, 41, 59, 0.6);
+  border-radius: 12px;
+  padding: 1.5rem;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(148, 163, 184, 0.1);
+}
+
+/* Tabs */
+.tabs-container {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+.tab-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 8px;
+  color: #94a3b8;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.tab-button:hover {
+  background: rgba(96, 165, 250, 0.1);
+  border-color: rgba(96, 165, 250, 0.3);
+  color: #e2e8f0;
+}
+
+.tab-button.active {
+  background: rgba(96, 165, 250, 0.2);
+  border-color: #60a5fa;
+  color: #60a5fa;
+  font-weight: 600;
+}
+
+.tab-count {
+  background: rgba(96, 165, 250, 0.2);
+  color: #60a5fa;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.tab-button.active .tab-count {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.search-box {
+  flex: 1;
+  min-width: 200px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 8px;
+  color: #e2e8f0;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #60a5fa;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.status-indicator {
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  background: rgba(15, 23, 42, 0.6);
+}
+
+.status-indicator.connected {
+  color: #86efac;
+}
+
+.status-indicator.disconnected {
+  color: #f87171;
+}
+
+.reconnect-btn {
+  padding: 0.5rem 1rem;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+}
+
+.reconnect-btn:hover {
+  background: #2563eb;
+}
+
+.error-message {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #fca5a5;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.loading,
+.no-results {
+  text-align: center;
+  padding: 3rem;
+  color: #94a3b8;
+  font-size: 1.1rem;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  border-radius: 8px;
+  border: 1px solid rgba(148, 163, 184, 0.1);
+}
+
+.opportunities-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(15, 23, 42, 0.4);
+}
+
+.opportunities-table thead {
+  background: rgba(15, 23, 42, 0.8);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.opportunities-table th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: #cbd5e1;
+  border-bottom: 2px solid rgba(148, 163, 184, 0.2);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.opportunities-table th.sortable {
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.2s;
+}
+
+.opportunities-table th.sortable:hover {
+  background: rgba(96, 165, 250, 0.1);
+}
+
+.net-apr-header {
+  color: #60a5fa;
+  font-weight: 700;
+}
+
+.opportunities-table td {
+  padding: 1rem;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+  color: #e2e8f0;
+}
+
+.opportunities-table tbody tr {
+  transition: background 0.2s;
+}
+
+.opportunities-table tbody tr:hover {
+  background: rgba(96, 165, 250, 0.05);
+}
+
+.opportunities-table tbody tr.top-opportunity {
+  background: rgba(96, 165, 250, 0.1);
+  border-left: 3px solid #60a5fa;
+}
+
+.coin-symbol {
+  font-weight: 600;
+  color: #60a5fa;
+  font-family: 'Courier New', monospace;
+}
+
+.incomplete-data-warning {
+  color: #f87171;
+  margin-left: 0.35rem;
+  cursor: help;
+  font-size: 0.7rem;
+  vertical-align: super;
+}
+
+.net-apr {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.net-apr.positive {
+  color: #86efac;
+}
+
+.net-apr.negative {
+  color: #f87171;
+}
+
+/* Historical APR columns */
+.historical-apr-header {
+  color: #a78bfa;
+  font-weight: 600;
+}
+
+.historical-apr {
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: #94a3b8;
+}
+
+.historical-apr.positive {
+  color: #86efac;
+}
+
+.historical-apr.negative {
+  color: #f87171;
+}
+
+.timestamp {
+  color: #94a3b8;
+  font-size: 0.9rem;
+}
+
+.table-footer {
+  margin-top: 1rem;
+  text-align: center;
+  color: #94a3b8;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .opportunities-table {
+    font-size: 0.85rem;
+  }
+
+  .opportunities-table th,
+  .opportunities-table td {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+
+

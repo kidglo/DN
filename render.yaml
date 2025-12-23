@@ -1,0 +1,36 @@
+# Render Blueprint for Funding Rate Arbitrage Tracker
+# Deploy with: Connect GitHub repo to Render Dashboard
+# 
+# IMPORTANT: After deploying, you need to manually set the VITE_BACKEND_URL
+# environment variable on the frontend service to point to your backend URL.
+
+services:
+  # Backend API + WebSocket Server
+  - type: web
+    name: funding-rate-backend
+    runtime: node
+    region: oregon
+    plan: free
+    buildCommand: cd backend && npm install && npm run build
+    startCommand: cd backend && npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+    healthCheckPath: /health
+
+  # Frontend Static Site
+  - type: web
+    name: funding-rate-frontend
+    runtime: static
+    region: oregon
+    plan: free
+    buildCommand: cd frontend && npm install && npm run build
+    staticPublishPath: frontend/dist
+    headers:
+      - path: /*
+        name: Cache-Control
+        value: public, max-age=0, must-revalidate
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html

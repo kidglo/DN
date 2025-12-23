@@ -1,0 +1,21 @@
+{
+  "name": "funding-rate-arbitrage-app",
+  "version": "1.0.0",
+  "description": "Delta-neutral funding rate arbitrage opportunity finder for Lighter and Hyperliquid",
+  "scripts": {
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "build:backend": "cd backend && npm run build",
+    "build:frontend": "cd frontend && npm run build",
+    "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install"
+  },
+  "workspaces": [
+    "backend",
+    "frontend",
+    "shared"
+  ],
+  "private": true
+}
+
+
+
