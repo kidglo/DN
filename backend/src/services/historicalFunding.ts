@@ -54,15 +54,6 @@ export class HistoricalFundingService {
   }
 
   /**
-   * Clear all caches to force fresh data fetch
-   */
-  clearCache(): void {
-    this.cache.clear();
-    this.ratesCache.clear();
-    console.log('[HistoricalFunding] Cache cleared');
-  }
-
-  /**
    * Normalize a funding rate to hourly period for fair comparison
    */
   private normalizeToHourly(rate: number, periodHours: number): number {

@@ -11,24 +11,15 @@ const server = createServer(app);
 const wsService = new WebSocketService(server);
 
 // Middleware
-// Configure CORS for production
-const allowedOrigins = process.env.ALLOWED_ORIGINS 
-  ? process.env.ALLOWED_ORIGINS.split(',') 
-  : ['http://localhost:3000', 'http://localhost:5173'];
-
 app.use(cors({
-  origin: (origin, callback) => {
+  origin: (origin: string | undefined, callback: (err: Error | null, allow?: boolean) => void) => {
     // Allow requests with no origin (mobile apps, curl, etc.)
     if (!origin) return callback(null, true);
-    // Allow all origins in development, or check allowlist in production
-    if (process.env.NODE_ENV !== 'production' || allowedOrigins.some(allowed => origin.includes(allowed.replace('https://', '').replace('http://', '')))) {
-      return callback(null, true);
-    }
     // In production, allow any .onrender.com origin
     if (origin.endsWith('.onrender.com')) {
       return callback(null, true);
     }
-    callback(null, true); // Allow all for now - can restrict later
+    callback(null, true); // Allow all for now
   },
   credentials: true,
 }));
